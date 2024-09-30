@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java For 循环</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <h1>Java For 循环</h1>
+    <p>For 循环是 Java 中最常用的循环结构之一，特别适用于需要执行特定次数的循环。它提供了一种简洁的方式来迭代一定范围的值或集合中的元素。</p>
+
+    <h2>1. 基本 For 循环语法</h2>
+    <pre><code class="language-java">
+for (初始化; 条件; 更新) {
+    // 循环体
+}
+    </code></pre>
+    <ul>
+        <li><strong>初始化：</strong> 在循环开始前执行一次，通常用于初始化循环计数器。</li>
+        <li><strong>条件：</strong> 在每次循环迭代开始时检查，如果为 true 则执行循环体。</li>
+        <li><strong>更新：</strong> 在每次循环迭代结束时执行，通常用于更新循环计数器。</li>
+    </ul>
+
+    <h2>2. 基本 For 循环示例</h2>
+    <pre><code class="language-java">
+for (int i = 0; i < 5; i++) {
+    System.out.println("当前计数: " + i);
+}
+    </code></pre>
+
+    <h2>3. For 循环变体</h2>
+    <h3>3.1 多个初始化或更新语句</h3>
+    <pre><code class="language-java">
+for (int i = 0, j = 10; i < j; i++, j--) {
+    System.out.println("i = " + i + ", j = " + j);
+}
+    </code></pre>
+
+    <h3>3.2 无限 For 循环</h3>
+    <pre><code class="language-java">
+for (;;) {
+    // 这是一个无限循环
+    // 需要使用 break 语句来退出
+}
+    </code></pre>
+
+    <h2>4. 增强型 For 循环（For-Each 循环）</h2>
+    <p>用于遍历数组或集合中的元素，语法更简洁。</p>
+    <pre><code class="language-java">
+String[] fruits = {"Apple", "Banana", "Cherry"};
+for (String fruit : fruits) {
+    System.out.println(fruit);
+}
+    </code></pre>
+
+    <h2>5. 嵌套 For 循环</h2>
+    <pre><code class="language-java">
+for (int i = 1; i <= 3; i++) {
+    for (int j = 1; j <= 3; j++) {
+        System.out.println("i = " + i + ", j = " + j);
+    }
+}
+    </code></pre>
+
+    <h2>6. 使用 break 和 continue</h2>
+    <h3>6.1 使用 break 提前退出循环</h3>
+    <pre><code class="language-java">
+for (int i = 0; i < 10; i++) {
+    if (i == 5) {
+        break; // 当 i 等于 5 时退出循环
+    }
+    System.out.println(i);
+}
+    </code></pre>
+
+    <h3>6.2 使用 continue 跳过当前迭代</h3>
+    <pre><code class="language-java">
+for (int i = 0; i < 10; i++) {
+    if (i % 2 == 0) {
+        continue; // 跳过偶数
+    }
+    System.out.println(i); // 只打印奇数
+}
+    </code></pre>
+
+    <h2>7. 标签化 For 循环</h2>
+    <p>可以给循环添加标签，用于在嵌套循环中跳出外层循环。</p>
+    <pre><code class="language-java">
+outerLoop: for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+        if (i == 1 && j == 1) {
+            break outerLoop; // 跳出外层循环
+        }
+        System.out.println("i = " + i + ", j = " + j);
+    }
+}
+    </code></pre>
+
+    <h2>8. For 循环与数组</h2>
+    <pre><code class="language-java">
+int[] numbers = {1, 2, 3, 4, 5};
+for (int i = 0; i < numbers.length; i++) {
+    System.out.println("索引 " + i + " 的值是: " + numbers[i]);
+}
+    </code></pre>
+
+    <h2>9. For 循环与 ArrayList</h2>
+    <pre><code class="language-java">
+import java.util.ArrayList;
+
+ArrayList<String> cars = new ArrayList<String>();
+cars.add("Volvo");
+cars.add("BMW");
+cars.add("Ford");
+
+for (int i = 0; i < cars.size(); i++) {
+    System.out.println(cars.get(i));
+}
+    </code></pre>
+
+    <h2>10. 实际应用示例：打印乘法表</h2>
+    <pre><code class="language-java">
+public class MultiplicationTable {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 9; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.printf("%d x %d = %d\t", j, i, i * j);
+            }
+            System.out.println(); // 换行
+        }
+    }
+}
+    </code></pre>
+
+    <h2>注意事项</h2>
+    <ul>
+        <li>确保循环有明确的终止条件，避免无限循环。</li>
+        <li>注意循环变量的作用域，for 循环中声明的变量只在循环内部可见。</li>
+        <li>对于简单的数组或集合遍历，优先使用增强型 for 循环（for-each）。</li>
+        <li>在循环体中修改循环变量可能导致意外行为，应谨慎使用。</li>
+        <li>大型循环中的性能考虑：尽量将不变的计算移到循环外。</li>
+    </ul>
+</body>
+</html>

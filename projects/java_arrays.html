@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 数组</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <h1>Java 数组</h1>
+    <p>数组是 Java 中用于存储多个同类型值的容器对象。它们在内存中是连续存储的，可以通过索引快速访问元素。</p>
+
+    <h2>1. 声明数组</h2>
+    <p>在 Java 中，有两种方式声明数组：</p>
+    <pre><code class="language-java">
+// 方式 1
+dataType[] arrayName;
+
+// 方式 2
+dataType arrayName[];
+    </code></pre>
+    <p>例如：</p>
+    <pre><code class="language-java">
+int[] numbers;
+String[] names;
+    </code></pre>
+
+    <h2>2. 创建数组</h2>
+    <p>声明数组后，需要创建数组对象并指定其大小：</p>
+    <pre><code class="language-java">
+numbers = new int[5]; // 创建一个可以存储 5 个整数的数组
+names = new String[10]; // 创建一个可以存储 10 个字符串的数组
+    </code></pre>
+    <p>也可以在声明的同时创建数组：</p>
+    <pre><code class="language-java">
+int[] numbers = new int[5];
+    </code></pre>
+
+    <h2>3. 初始化数组</h2>
+    <p>可以在创建数组时直接初始化：</p>
+    <pre><code class="language-java">
+int[] numbers = {1, 2, 3, 4, 5};
+String[] fruits = {"Apple", "Banana", "Orange"};
+    </code></pre>
+
+    <h2>4. 访问数组元素</h2>
+    <p>使用索引访问数组元素，索引从 0 开始：</p>
+    <pre><code class="language-java">
+int[] numbers = {10, 20, 30, 40, 50};
+System.out.println(numbers[0]); // 输出 10
+System.out.println(numbers[2]); // 输出 30
+    </code></pre>
+
+    <h2>5. 修改数组元素</h2>
+    <pre><code class="language-java">
+int[] numbers = {10, 20, 30, 40, 50};
+numbers[1] = 25;
+System.out.println(numbers[1]); // 输出 25
+    </code></pre>
+
+    <h2>6. 数组长度</h2>
+    <p>使用 length 属性获取数组长度：</p>
+    <pre><code class="language-java">
+int[] numbers = {1, 2, 3, 4, 5};
+System.out.println(numbers.length); // 输出 5
+    </code></pre>
+
+    <h2>7. 遍历数组</h2>
+    <h3>7.1 使用 for 循环</h3>
+    <pre><code class="language-java">
+int[] numbers = {1, 2, 3, 4, 5};
+for (int i = 0; i < numbers.length; i++) {
+    System.out.println(numbers[i]);
+}
+    </code></pre>
+
+    <h3>7.2 使用增强 for 循环（for-each）</h3>
+    <pre><code class="language-java">
+int[] numbers = {1, 2, 3, 4, 5};
+for (int number : numbers) {
+    System.out.println(number);
+}
+    </code></pre>
+
+    <h2>8. 多维数组</h2>
+    <p>Java 支持多维数组，最常见的是二维数组：</p>
+    <pre><code class="language-java">
+int[][] matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+System.out.println(matrix[1][2]); // 输出 6
+    </code></pre>
+
+    <h2>9. 数组作为方法参数</h2>
+    <pre><code class="language-java">
+public static void printArray(int[] arr) {
+    for (int i : arr) {
+        System.out.print(i + " ");
+    }
+    System.out.println();
+}
+
+int[] numbers = {1, 2, 3, 4, 5};
+printArray(numbers);
+    </code></pre>
+
+    <h2>10. 数组作为方法返回值</h2>
+    <pre><code class="language-java">
+public static int[] createArray(int size) {
+    return new int[size];
+}
+
+int[] newArray = createArray(5);
+    </code></pre>
+
+    <h2>11. Arrays 类</h2>
+    <p>Java 提供了 Arrays 类，包含了许多有用的数组操作方法：</p>
+    <pre><code class="language-java">
+import java.util.Arrays;
+
+int[] numbers = {5, 2, 8, 1, 9};
+Arrays.sort(numbers);
+System.out.println(Arrays.toString(numbers)); // 输出 [1, 2, 5, 8, 9]
+
+int index = Arrays.binarySearch(numbers, 5);
+System.out.println("Index of 5: " + index); // 输出 2
+
+int[] newArray = Arrays.copyOf(numbers, 7);
+System.out.println(Arrays.toString(newArray)); // 输出 [1, 2, 5, 8, 9, 0, 0]
+    </code></pre>
+
+    <h2>12. 注意事项</h2>
+    <ul>
+        <li>数组的大小一旦确定就不能改变。如果需要可变大小的集合，考虑使用 ArrayList。</li>
+        <li>访问数组时要注意索引范围，越界访问会导致 ArrayIndexOutOfBoundsException。</li>
+        <li>多维数组中，每个子数组的长度可以不同。</li>
+        <li>数组是引用类型，当作为参数传递时，传递的是引用，而不是数组的副本。</li>
+    </ul>
+
+    <h2>13. 实际应用示例：简单的成绩统计</h2>
+    <pre><code class="language-java">
+public class GradeAnalyzer {
+    public static void main(String[] args) {
+        int[] grades = {85, 90, 78, 88, 76, 95, 89, 80, 92};
+        int sum = 0;
+        int highest = grades[0];
+        int lowest = grades[0];
+
+        for (int grade : grades) {
+            sum += grade;
+            if (grade > highest) highest = grade;
+            if (grade < lowest) lowest = grade;
+        }
+
+        double average = (double) sum / grades.length;
+
+        System.out.println("成绩分析：");
+        System.out.println("平均分：" + average);
+        System.out.println("最高分：" + highest);
+        System.out.println("最低分：" + lowest);
+    }
+}
+    </code></pre>
+
+    <p>这个示例展示了如何使用数组存储一组成绩，并计算平均分、最高分和最低分。</p>
+</body>
+</html>

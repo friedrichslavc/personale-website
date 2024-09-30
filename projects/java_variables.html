@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 变量</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <h1>Java 变量</h1>
+    
+    <p>变量是用于存储数据值的容器。在Java中，每个变量都必须有一个特定的数据类型。</p>
+
+    <h2>1. 变量声明</h2>
+    <p>在Java中，变量声明的基本语法是：</p>
+    <pre><code class="language-java">
+type variableName = value;
+    </code></pre>
+    <p>例如：</p>
+    <pre><code class="language-java">
+int myNum = 5;               // 整数
+float myFloatNum = 5.99f;    // 浮点数
+char myLetter = 'D';         // 字符
+boolean myBool = true;       // 布尔
+String myText = "Hello";     // 字符串
+    </code></pre>
+
+    <h2>2. 变量类型</h2>
+    <h3>基本数据类型：</h3>
+    <ul>
+        <li>byte: 8位有符号二进制补码整数</li>
+        <li>short: 16位有符号二进制补码整数</li>
+        <li>int: 32位有符号二进制补码整数</li>
+        <li>long: 64位有符号二进制补码整数</li>
+        <li>float: 单精度32位IEEE 754浮点数</li>
+        <li>double: 双精度64位IEEE 754浮点数</li>
+        <li>boolean: true 或 false</li>
+        <li>char: 单个16位Unicode字符</li>
+    </ul>
+    <h3>引用数据类型：</h3>
+    <ul>
+        <li>类对象</li>
+        <li>数组</li>
+        <li>接口</li>
+    </ul>
+
+    <h2>3. 变量命名规则</h2>
+    <ul>
+        <li>变量名可以包含字母、数字、下划线和美元符号</li>
+        <li>变量名必须以字母、下划线或美元符号开头</li>
+        <li>变量名区分大小写</li>
+        <li>变量名不能是Java关键字</li>
+        <li>变量名应该有描述性，遵循驼峰命名法（如 myVariableName）</li>
+    </ul>
+
+    <h2>4. 变量作用域</h2>
+    <p>变量的作用域决定了变量在程序中的可见性和生命周期。</p>
+    <h3>局部变量：</h3>
+    <p>在方法或代码块内部声明的变量。</p>
+    <pre><code class="language-java">
+public void myMethod() {
+    int x = 10;  // 局部变量
+    // x 只在 myMethod 内部可用
+}
+    </code></pre>
+    <h3>实例变量（非静态字段）：</h3>
+    <p>在类中声明，但在方法外声明的变量。</p>
+    <pre><code class="language-java">
+public class MyClass {
+    int y = 5;  // 实例变量
+    // y 可以被这个类的所有非静态方法访问
+}
+    </code></pre>
+    <h3>类变量（静态字段）：</h3>
+    <p>使用 static 关键字声明的变量，被类的所有实例共享。</p>
+    <pre><code class="language-java">
+public class MyClass {
+    static int z = 0;  // 类变量
+    // z 被所有 MyClass 的实例共享
+}
+    </code></pre>
+
+    <h2>5. 常量</h2>
+    <p>常量是不能被修改的变量，在Java中使用 final 关键字声明。</p>
+    <pre><code class="language-java">
+final double PI = 3.14159;
+    </code></pre>
+
+    <h2>6. 类型推断（Java 10+）</h2>
+    <p>从Java 10开始，可以使用 var 关键字进行局部变量类型推断。</p>
+    <pre><code class="language-java">
+var message = "Hello, Java!";  // 推断为 String 类型
+var number = 42;               // 推断为 int 类型
+    </code></pre>
+
+    <h2>7. 变量初始化</h2>
+    <p>局部变量在使用前必须初始化，而实例变量和类变量有默认值。</p>
+    <pre><code class="language-java">
+public class VariableInitialization {
+    int instanceVar;  // 默认值为 0
+    static boolean classVar;  // 默认值为 false
+
+    public void method() {
+        int localVar;
+        // System.out.println(localVar);  // 错误：localVar 未初始化
+        localVar = 10;  // 正确：初始化后可以使用
+        System.out.println(localVar);
+    }
+}
+    </code></pre>
+
+    <h2>注意事项</h2>
+    <ul>
+        <li>选择有意义的变量名可以提高代码的可读性。</li>
+        <li>尽量将变量的作用域限制在最小范围内。</li>
+        <li>对于不会改变的值，使用常量（final 变量）。</li>
+        <li>注意变量的生命周期，及时释放不再使用的资源。</li>
+        <li>使用适当的数据类型可以优化内存使用和程序性能。</li>
+    </ul>
+</body>
+</html>

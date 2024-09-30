@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品展示 - 虎平安的个人网站</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <!-- 保持导航栏不变 -->
+    </nav>
+
+    <header class="portfolio-header">
+        <div class="container">
+            <h1>我的作品</h1>
+            <p>这里展示了我的一些项目和学习成果</p>
+        </div>
+    </header>
+
+    <main class="portfolio-main">
+        <div class="container">
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="web">Web开发</button>
+                <button class="filter-btn" data-filter="java">Java项目</button>
+                <button class="filter-btn" data-filter="other">其他</button>
+            </div>
+
+            <div class="row portfolio-grid">
+                <div class="col-md-4 portfolio-item" data-category="java">
+                    <div class="card">
+                        <img src="image/e9cab3a490d6f01b1820426c82ae2f232a267dfe.jpg" class="card-img-top" alt="Java Notes">
+                        <div class="card-body">
+                            <h5 class="card-title">Java 学习笔记</h5>
+                            <p class="card-text">基于W3Schools的Java教程整理的学习笔记，涵盖Java基础知识和面向对象编程概念。</p>
+                            <a href="java_notes.html" class="btn btn-primary">查看笔记</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 添加更多作品卡片 -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <!-- 保持页脚不变 -->
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.getAttribute('data-filter');
+                    
+                    filterBtns.forEach(btn => btn.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

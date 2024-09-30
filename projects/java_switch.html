@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Switch 语句</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <h1>Java Switch 语句</h1>
+    
+    <p>Switch 语句是一种多分支选择结构，用于根据一个变量的不同值执行不同的代码块。它通常用于替代多个 if-else 语句，使代码更加简洁和易读。</p>
+
+    <h2>1. 基本语法</h2>
+    <pre><code class="language-java">
+switch (expression) {
+    case value1:
+        // 代码块 1
+        break;
+    case value2:
+        // 代码块 2
+        break;
+    // 更多 case
+    default:
+        // 默认代码块
+}
+    </code></pre>
+
+    <h2>2. 工作原理</h2>
+    <ul>
+        <li>Switch 表达式的值会与每个 case 的值进行比较。</li>
+        <li>如果匹配成功，则执行对应的代码块。</li>
+        <li>break 语句用于跳出 switch 块。</li>
+        <li>如果没有匹配的 case，则执行 default 块（如果有的话）。</li>
+    </ul>
+
+    <h2>3. 支持的数据类型</h2>
+    <p>Switch 表达式支持以下数据类型：</p>
+    <ul>
+        <li>byte, short, char, int</li>
+        <li>枚举类型（Enum）</li>
+        <li>String（从 Java 7 开始）</li>
+    </ul>
+
+    <h2>4. 示例：使用整数</h2>
+    <pre><code class="language-java">
+int day = 4;
+switch (day) {
+    case 1:
+        System.out.println("星期一");
+        break;
+    case 2:
+        System.out.println("星期二");
+        break;
+    case 3:
+        System.out.println("星期三");
+        break;
+    case 4:
+        System.out.println("星期四");
+        break;
+    case 5:
+        System.out.println("星期五");
+        break;
+    case 6:
+        System.out.println("星期六");
+        break;
+    case 7:
+        System.out.println("星期日");
+        break;
+    default:
+        System.out.println("无效的日期");
+}
+    </code></pre>
+
+    <h2>5. 示例：使用字符串</h2>
+    <pre><code class="language-java">
+String fruit = "apple";
+switch (fruit.toLowerCase()) {
+    case "apple":
+        System.out.println("苹果是红色或绿色的。");
+        break;
+    case "banana":
+        System.out.println("香蕉是黄色的。");
+        break;
+    case "cherry":
+        System.out.println("樱桃是红色的。");
+        break;
+    default:
+        System.out.println("我不知道这种水果的颜色。");
+}
+    </code></pre>
+
+    <h2>6. 多个 case 共享代码块</h2>
+    <p>如果多个 case 需要执行相同的代码，可以将它们组合在一起：</p>
+    <pre><code class="language-java">
+int month = 8;
+String season;
+switch (month) {
+    case 12:
+    case 1:
+    case 2:
+        season = "冬季";
+        break;
+    case 3:
+    case 4:
+    case 5:
+        season = "春季";
+        break;
+    case 6:
+    case 7:
+    case 8:
+        season = "夏季";
+        break;
+    case 9:
+    case 10:
+    case 11:
+        season = "秋季";
+        break;
+    default:
+        season = "无效月份";
+}
+System.out.println("现在是" + season);
+    </code></pre>
+
+    <h2>7. 注意事项</h2>
+    <ul>
+        <li>每个 case 后面都应该有一个 break 语句，除非你故意想要 case 穿透。</li>
+        <li>default 语句是可选的，但建议始终包含它以处理意外情况。</li>
+        <li>case 的值必须是常量表达式，不能是变量。</li>
+        <li>如果省略 break，程序会继续执行下一个 case，这称为 "fall-through"。</li>
+    </ul>
+
+    <h2>8. Switch 表达式（Java 12 及以后）</h2>
+    <p>从 Java 12 开始，引入了 switch 表达式，可以直接返回值：</p>
+    <pre><code class="language-java">
+String day = "MONDAY";
+String typeOfDay = switch (day) {
+    case "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY" -> "工作日";
+    case "SATURDAY", "SUNDAY" -> "周末";
+    default -> "无效日期";
+};
+System.out.println(typeOfDay);
+    </code></pre>
+
+    <h2>9. 何时使用 Switch 而不是 If-Else</h2>
+    <ul>
+        <li>当有多个条件需要检查同一个变量时。</li>
+        <li>当所有的分支都基于等值检查时。</li>
+        <li>当有大量的条件分支时，switch 通常比一系列 if-else 语句更高效。</li>
+    </ul>
+
+    <h2>10. 实际应用示例</h2>
+    <pre><code class="language-java">
+public class GradeEvaluator {
+    public static void main(String[] args) {
+        char grade = 'B';
+        switch (grade) {
+            case 'A':
+                System.out.println("优秀！继续保持。");
+                break;
+            case 'B':
+                System.out.println("良好。还有进步空间。");
+                break;
+            case 'C':
+                System.out.println("及格。需要更多努力。");
+                break;
+            case 'D':
+                System.out.println("不及格。需要大幅提升。");
+                break;
+            case 'F':
+                System.out.println("失败。请考虑补考或重修。");
+                break;
+            default:
+                System.out.println("无效的成绩。");
+        }
+    }
+}
+    </code></pre>
+
+    <p>这个示例展示了如何使用 switch 语句来评估学生的成绩，并给出相应的反馈。</p>
+</body>
+</html>

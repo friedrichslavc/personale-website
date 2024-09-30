@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 类型转换</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <h1>Java 类型转换</h1>
+    <p>类型转换是将一种数据类型的值转换为另一种数据类型。在Java中，类型转换分为两种：自动类型转换（隐式转换）和强制类型转换（显式转换）。</p>
+
+    <h2>1. 自动类型转换（隐式转换）</h2>
+    <p>当较小的数据类型转换为较大的数据类型时，Java会自动进行转换。转换顺序如下：</p>
+    <pre><code class="language-java">
+byte → short → int → long → float → double
+char → int
+    </code></pre>
+    <p>示例：</p>
+    <pre><code class="language-java">
+int myInt = 9;
+double myDouble = myInt; // 自动将 int 转换为 double
+
+System.out.println(myInt);      // 输出 9
+System.out.println(myDouble);   // 输出 9.0
+    </code></pre>
+
+    <h2>2. 强制类型转换（显式转换）</h2>
+    <p>当较大的数据类型需要转换为较小的数据类型时，需要进行强制类型转换。这可能会导致精度损失或数据溢出。</p>
+    <p>语法：<code>(targetType) value</code></p>
+    <p>示例：</p>
+    <pre><code class="language-java">
+double myDouble = 9.78;
+int myInt = (int) myDouble; // 强制将 double 转换为 int
+
+System.out.println(myDouble);   // 输出 9.78
+System.out.println(myInt);      // 输出 9
+    </code></pre>
+
+    <h2>3. 数值提升</h2>
+    <p>在进行算术运算时，Java会自动将操作数提升为更高精度的类型。</p>
+    <pre><code class="language-java">
+byte b = 42;
+char c = 'a';
+short s = 1024;
+int i = 50000;
+float f = 5.67f;
+double d = .1234;
+
+// 结果为 double 类型
+double result = (f * b) + (i / c) - (d * s);
+    </code></pre>
+
+    <h2>4. 字符串转换</h2>
+    <h3>4.1 基本类型转字符串</h3>
+    <pre><code class="language-java">
+String str1 = String.valueOf(10);    // 整数转字符串
+String str2 = String.valueOf(3.14);  // 浮点数转字符串
+String str3 = "" + 10;               // 另一种转换方式
+    </code></pre>
+
+    <h3>4.2 字符串转基本类型</h3>
+    <pre><code class="language-java">
+int i = Integer.parseInt("10");
+double d = Double.parseDouble("3.14");
+boolean b = Boolean.parseBoolean("true");
+    </code></pre>
+
+    <h2>5. 包装类的自动装箱和拆箱</h2>
+    <p>自动装箱是将基本数据类型自动转换为对应的包装类，而自动拆箱是将包装类自动转换为基本数据类型。</p>
+    <pre><code class="language-java">
+Integer num = 100;  // 自动装箱
+int n = num;        // 自动拆箱
+    </code></pre>
+
+    <h2>6. 类型转换中的注意事项</h2>
+    <ul>
+        <li>在进行强制类型转换时要注意可能的数据溢出和精度损失。</li>
+        <li>char 可以存储 0 到 65535 之间的整数值，对应 Unicode 字符。</li>
+        <li>boolean 类型不能与其他基本数据类型进行转换。</li>
+        <li>在进行复杂的数学计算时，要注意不同类型间的转换可能带来的精度问题。</li>
+    </ul>
+
+    <h2>7. 示例：不同类型间的转换</h2>
+    <pre><code class="language-java">
+public class TypeCastingExample {
+    public static void main(String[] args) {
+        // 整数类型间的转换
+        byte b = 100;
+        short s = b;  // byte 到 short 的自动转换
+        int i = s;    // short 到 int 的自动转换
+        long l = i;   // int 到 long 的自动转换
+
+        int x = (int) l;  // long 到 int 的强制转换
+
+        // 整数和浮点数之间的转换
+        float f = l;   // long 到 float 的自动转换
+        double d = f;  // float 到 double 的自动转换
+
+        int y = (int) f;  // float 到 int 的强制转换（可能损失精度）
+
+        // 字符类型的转换
+        char c = 'A';
+        int asciiValue = c;  // char 到 int 的自动转换
+
+        char c2 = (char) (asciiValue + 1);  // int 到 char 的强制转换
+
+        // 使用包装类进行转换
+        String strNumber = "123";
+        int parsedInt = Integer.parseInt(strNumber);
+        double parsedDouble = Double.parseDouble("3.14159");
+
+        System.out.println("Parsed int: " + parsedInt);
+        System.out.println("Parsed double: " + parsedDouble);
+
+        // 数值计算中的类型提升
+        byte b1 = 50, b2 = 100;
+        int result = b1 * b2;  // 结果自动提升为 int 类型
+
+        System.out.println("Result of byte multiplication: " + result);
+    }
+}
+    </code></pre>
+
+    <h2>总结</h2>
+    <p>理解和正确使用类型转换是Java编程中的重要技能。它不仅涉及基本数据类型之间的转换，还包括与字符串和包装类之间的转换。在进行类型转换时，始终要注意可能的数据损失和精度问题，并在必要时使用适当的转换方法。</p>
+</body>
+</html>

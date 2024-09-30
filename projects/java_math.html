@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 数学</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <h1>Java 数学</h1>
+    
+    <p>Java 提供了 Math 类，包含了执行基本数学运算的方法，如指数、对数、平方根和三角函数等。Math 类位于 java.lang 包中，所以使用时不需要导入。</p>
+
+    <h2>1. Math 类的常用方法</h2>
+    <ul>
+        <li><code>Math.abs(x)</code>: 返回 x 的绝对值</li>
+        <li><code>Math.max(x, y)</code>: 返回 x 和 y 中的最大值</li>
+        <li><code>Math.min(x, y)</code>: 返回 x 和 y 中的最小值</li>
+        <li><code>Math.pow(x, y)</code>: 返回 x 的 y 次幂</li>
+        <li><code>Math.sqrt(x)</code>: 返回 x 的平方根</li>
+        <li><code>Math.round(x)</code>: 返回 x 四舍五入后的整数</li>
+        <li><code>Math.floor(x)</code>: 返回小于或等于 x 的最大整数</li>
+        <li><code>Math.ceil(x)</code>: 返回大于或等于 x 的最小整数</li>
+        <li><code>Math.random()</code>: 返回一个 [0.0, 1.0) 范围内的随机数</li>
+    </ul>
+
+    <h2>2. 三角函数</h2>
+    <ul>
+        <li><code>Math.sin(x)</code>: 返回角 x 的正弦值（x 以弧度为单位）</li>
+        <li><code>Math.cos(x)</code>: 返回角 x 的余弦值</li>
+        <li><code>Math.tan(x)</code>: 返回角 x 的正切值</li>
+        <li><code>Math.asin(x)</code>: 返回 x 的反正弦值</li>
+        <li><code>Math.acos(x)</code>: 返回 x 的反余弦值</li>
+        <li><code>Math.atan(x)</code>: 返回 x 的反正切值</li>
+        <li><code>Math.toDegrees(x)</code>: 将弧度转换为角度</li>
+        <li><code>Math.toRadians(x)</code>: 将角度转换为弧度</li>
+    </ul>
+
+    <h2>3. 常量</h2>
+    <ul>
+        <li><code>Math.PI</code>: 圆周率 π 的近似值</li>
+        <li><code>Math.E</code>: 自然对数的底数 e 的近似值</li>
+    </ul>
+
+    <h2>4. 示例</h2>
+    <pre><code class="language-java">
+public class MathExample {
+    public static void main(String[] args) {
+        // 基本运算
+        System.out.println("绝对值: " + Math.abs(-4.7));
+        System.out.println("最大值: " + Math.max(3.14, 3.15));
+        System.out.println("最小值: " + Math.min(3.14, 3.15));
+        System.out.println("2的3次方: " + Math.pow(2, 3));
+        System.out.println("16的平方根: " + Math.sqrt(16));
+        System.out.println("四舍五入 3.75: " + Math.round(3.75));
+        System.out.println("向下取整 3.75: " + Math.floor(3.75));
+        System.out.println("向上取整 3.75: " + Math.ceil(3.75));
+
+        // 随机数
+        System.out.println("随机数: " + Math.random());
+
+        // 三角函数
+        double angle = 45.0;
+        double radians = Math.toRadians(angle);
+        System.out.println("sin(45°): " + Math.sin(radians));
+        System.out.println("cos(45°): " + Math.cos(radians));
+        System.out.println("tan(45°): " + Math.tan(radians));
+
+        // 常量
+        System.out.println("π: " + Math.PI);
+        System.out.println("e: " + Math.E);
+    }
+}
+    </code></pre>
+
+    <h2>5. 生成指定范围的随机数</h2>
+    <p>要生成指定范围内的随机整数，可以使用以下公式：</p>
+    <pre><code class="language-java">
+int randomNum = (int)(Math.random() * (max - min + 1) + min);
+    </code></pre>
+    <p>其中 min 是范围的下限，max 是上限。例如，生成 1 到 10 之间的随机数：</p>
+    <pre><code class="language-java">
+int randomNum = (int)(Math.random() * 10) + 1;
+    </code></pre>
+
+    <h2>6. BigDecimal 类</h2>
+    <p>对于需要高精度计算的场景（如金融计算），应使用 BigDecimal 类：</p>
+    <pre><code class="language-java">
+import java.math.BigDecimal;
+
+BigDecimal a = new BigDecimal("0.1");
+BigDecimal b = new BigDecimal("0.2");
+BigDecimal sum = a.add(b);
+System.out.println("0.1 + 0.2 = " + sum); // 输出 0.3
+    </code></pre>
+
+    <h2>7. 注意事项</h2>
+    <ul>
+        <li>Math 类的所有方法都是静态的，可以直接通过类名调用。</li>
+        <li>在进行浮点数计算时，要注意精度问题。对于需要精确计算的场景，应使用 BigDecimal。</li>
+        <li>三角函数的参数和返回值都是以弧度为单位的。使用 toDegrees() 和 toRadians() 方法进行转换。</li>
+        <li>Math.random() 生成的是 [0.0, 1.0) 范围内的随机数，不包括 1.0。</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java If...Else</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <h1>Java If...Else 语句</h1>
+   
+    <p>If...Else 语句是 Java 中最基本的控制流语句之一，用于根据条件执行不同的代码块。</p>
+
+    <h2>1. 基本 If 语句</h2>
+    <p>最简单的形式是只有 if 语句：</p>
+    <pre><code class="language-java">
+if (condition) {
+    // 如果条件为真，执行这里的代码
+}
+    </code></pre>
+    <p>示例：</p>
+    <pre><code class="language-java">
+int x = 10;
+if (x > 5) {
+    System.out.println("x 大于 5");
+}
+    </code></pre>
+
+    <h2>2. If...Else 语句</h2>
+    <p>当条件为假时，可以使用 else 子句执行替代代码：</p>
+    <pre><code class="language-java">
+if (condition) {
+    // 如果条件为真，执行这里的代码
+} else {
+    // 如果条件为假，执行这里的代码
+}
+    </code></pre>
+    <p>示例：</p>
+    <pre><code class="language-java">
+int time = 20;
+if (time < 18) {
+    System.out.println("Good day.");
+} else {
+    System.out.println("Good evening.");
+}
+    </code></pre>
+
+    <h2>3. If...Else If...Else 语句</h2>
+    <p>可以使用 else if 来测试多个条件：</p>
+    <pre><code class="language-java">
+if (condition1) {
+    // 如果条件1为真，执行这里的代码
+} else if (condition2) {
+    // 如果条件2为真，执行这里的代码
+} else {
+    // 如果以上条件都为假，执行这里的代码
+}
+    </code></pre>
+    <p>示例：</p>
+    <pre><code class="language-java">
+int score = 75;
+if (score >= 90) {
+    System.out.println("优秀");
+} else if (score >= 80) {
+    System.out.println("良好");
+} else if (score >= 60) {
+    System.out.println("及格");
+} else {
+    System.out.println("不及格");
+}
+    </code></pre>
+
+    <h2>4. 嵌套的 If...Else 语句</h2>
+    <p>可以在 if 或 else 块内部再使用 if...else 语句：</p>
+    <pre><code class="language-java">
+int x = 30;
+int y = 10;
+
+if (x > 20) {
+    if (y > 5) {
+        System.out.println("x 大于 20 且 y 大于 5");
+    } else {
+        System.out.println("x 大于 20 但 y 不大于 5");
+    }
+} else {
+    System.out.println("x 不大于 20");
+}
+    </code></pre>
+
+    <h2>5. 三元运算符</h2>
+    <p>对于简单的 if-else 语句，可以使用三元运算符作为简写：</p>
+    <pre><code class="language-java">
+variable = (condition) ? expressionTrue : expressionFalse;
+    </code></pre>
+    <p>示例：</p>
+    <pre><code class="language-java">
+int time = 20;
+String result = (time < 18) ? "Good day." : "Good evening.";
+System.out.println(result);
+    </code></pre>
+
+    <h2>6. 使用逻辑运算符</h2>
+    <p>可以使用逻辑运算符（&&, ||, !）来组合多个条件：</p>
+    <pre><code class="language-java">
+int age = 25;
+boolean hasLicense = true;
+
+if (age >= 18 && hasLicense) {
+    System.out.println("您可以驾驶");
+} else {
+    System.out.println("您不能驾驶");
+}
+    </code></pre>
+
+    <h2>7. 注意事项</h2>
+    <ul>
+        <li>即使 if 语句只有一行代码，也建议使用花括号 {} 来增加可读性。</li>
+        <li>避免过多的嵌套 if 语句，可以考虑使用 switch 语句或提前返回来简化代码。</li>
+        <li>在使用 else if 时，条件是按顺序检查的，一旦满足一个条件，后面的条件就不会被检查。</li>
+        <li>对于复杂的条件，可以将判断逻辑封装在一个方法中，以提高代码的可读性。</li>
+    </ul>
+
+    <h2>8. 实际应用示例</h2>
+    <pre><code class="language-java">
+public class WeatherAdvice {
+    public static void main(String[] args) {
+        double temperature = 28.5;
+        boolean isRaining = false;
+
+        if (temperature > 30) {
+            System.out.println("天气炎热，请注意防暑。");
+            if (isRaining) {
+                System.out.println("外出请带伞，注意防雷。");
+            } else {
+                System.out.println("请做好防晒措施。");
+            }
+        } else if (temperature > 20) {
+            System.out.println("天气适宜，适合外出活动。");
+            if (isRaining) {
+                System.out.println("可能会下雨，建议带伞。");
+            }
+        } else if (temperature > 10) {
+            System.out.println("天气凉爽，请适当增加衣物。");
+        } else {
+            System.out.println("天气寒冷，请注意保暖。");
+        }
+
+        // 使用三元运算符
+        String advice = isRaining ? "记得带伞" : "享受好天气";
+        System.out.println(advice);
+    }
+}
+    </code></pre>
+
+    <p>这个示例展示了如何使用 if-else 语句来根据温度和天气状况提供建议。它包含了嵌套的 if 语句、多重条件判断和三元运算符的使用。</p>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 学习笔记</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .w3-sidebar {
+            width: 220px;
+            background-color: #E7E9EB;
+            color: #000;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .w3-bar-item {
+            padding: 2px 1px 1px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .w3-bar-item:hover {
+            background-color: #cccccc;
+            color: #000;
+        }
+        .w3-main {
+            margin-left: 220px;
+        }
+        .w3-theme {
+            color: #fff !important;
+            background-color: #04AA6D !important;
+        }
+        #content {
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="w3-sidebar w3-bar-block">
+        <h3 class="w3-bar-item">Java 笔记</h3>
+        <div id="menulist">
+            <a href="projects/java_home.html" class="w3-bar-item w3-button">Java HOME</a>
+            <a href="projects/java_intro.html" class="w3-bar-item w3-button">Java 简介</a>
+            <a href="projects/java_getstarted.html" class="w3-bar-item w3-button">Java 入门</a>
+            <a href="projects/java_syntax.html" class="w3-bar-item w3-button">Java 语法</a>
+            <a href="projects/java_output.html" class="w3-bar-item w3-button">Java 输出</a>
+            <a href="projects/java_comments.html" class="w3-bar-item w3-button">Java 注释</a>
+            <a href="projects/java_variables.html" class="w3-bar-item w3-button">Java 变量</a>
+            <a href="projects/java_data_types.html" class="w3-bar-item w3-button">Java 数据类型</a>
+            <a href="projects/java_type_casting.html" class="w3-bar-item w3-button">Java 类型转换</a>
+            <a href="projects/java_operators.html" class="w3-bar-item w3-button">Java 运算符</a>
+            <a href="projects/java_strings.html" class="w3-bar-item w3-button">Java 字符串</a>
+            <a href="projects/java_math.html" class="w3-bar-item w3-button">Java 数学</a>
+            <a href="projects/java_booleans.html" class="w3-bar-item w3-button">Java 布尔</a>
+            <a href="projects/java_if_else.html" class="w3-bar-item w3-button">Java If...Else</a>
+            <a href="projects/java_switch.html" class="w3-bar-item w3-button">Java Switch</a>
+            <a href="projects/java_while_loop.html" class="w3-bar-item w3-button">Java While 循环</a>
+            <a href="projects/java_for_loop.html" class="w3-bar-item w3-button">Java For 循环</a>
+            <a href="projects/java_break_continue.html" class="w3-bar-item w3-button">Java Break/Continue</a>
+            <a href="projects/java_arrays.html" class="w3-bar-item w3-button">Java 数组</a>
+        </div>
+    </div>
+
+    <div class="w3-main">
+        <div class="w3-container w3-theme">
+            <h1>Java Tutorial</h1>
+        </div>
+
+        <div id="content">
+            <!-- 内容将通过 JavaScript 动态加载 -->
+        </div>
+    </div>
+
+    <script>
+        function loadContent(url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('content').innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error loading content:', error);
+                    document.getElementById('content').innerHTML = '<p>加载内容时出错。请稍后再试。</p>';
+                });
+        }
+
+        document.querySelectorAll('#menulist a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                loadContent(this.getAttribute('href'));
+                document.querySelectorAll('#menulist a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // 默认加载 Java HOME 页面
+        loadContent('projects/java_home.html');
+    </script>
+</body>
+</html>

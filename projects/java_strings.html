@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 字符串</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <h1>Java 字符串</h1>
+    
+    <p>在 Java 中，字符串是一个对象，表示一系列字符。String 类用于创建和操作字符串。</p>
+
+    <h2>1. 创建字符串</h2>
+    <p>有两种方式创建字符串：</p>
+    <pre><code class="language-java">
+// 使用字符串字面量
+String str1 = "Hello, World!";
+
+// 使用 new 关键字
+String str2 = new String("Hello, World!");
+    </code></pre>
+
+    <h2>2. 字符串不可变性</h2>
+    <p>Java 中的字符串是不可变的。一旦创建，就不能被修改。所有看似修改字符串的操作实际上都是创建了一个新的字符串对象。</p>
+
+    <h2>3. 字符串连接</h2>
+    <p>可以使用 + 运算符或 concat() 方法连接字符串：</p>
+    <pre><code class="language-java">
+String str1 = "Hello";
+String str2 = "World";
+String result1 = str1 + ", " + str2; // 使用 + 运算符
+String result2 = str1.concat(", ").concat(str2); // 使用 concat() 方法
+    </code></pre>
+
+    <h2>4. 常用字符串方法</h2>
+    <ul>
+        <li><code>length()</code>: 返回字符串的长度</li>
+        <li><code>charAt(int index)</code>: 返回指定索引处的字符</li>
+        <li><code>substring(int beginIndex, int endIndex)</code>: 返回一个新字符串，它是此字符串的一个子字符串</li>
+        <li><code>toLowerCase()</code>: 将所有字符转换为小写</li>
+        <li><code>toUpperCase()</code>: 将所有字符转换为大写</li>
+        <li><code>trim()</code>: 返回一个新字符串，去除了前导和尾随空白</li>
+        <li><code>replace(char oldChar, char newChar)</code>: 返回一个新字符串，用 newChar 替换所有的 oldChar</li>
+        <li><code>startsWith(String prefix)</code>: 测试此字符串是否以指定的前缀开始</li>
+        <li><code>endsWith(String suffix)</code>: 测试此字符串是否以指定的后缀结束</li>
+        <li><code>contains(CharSequence s)</code>: 当且仅当此字符串包含指定的 char 值序列时，返回 true</li>
+    </ul>
+
+    <h2>5. 字符串比较</h2>
+    <p>比较字符串内容应使用 equals() 方法，而不是 == 运算符：</p>
+    <pre><code class="language-java">
+String str1 = "Hello";
+String str2 = "Hello";
+String str3 = new String("Hello");
+
+System.out.println(str1.equals(str2)); // true
+System.out.println(str1 == str2); // true（因为字符串常量池的原因）
+System.out.println(str1.equals(str3)); // true
+System.out.println(str1 == str3); // false（str3 是一个新对象）
+    </code></pre>
+
+    <h2>6. StringBuilder 和 StringBuffer</h2>
+    <p>对于需要频繁修改的字符串，应使用 StringBuilder（非线程安全）或 StringBuffer（线程安全）：</p>
+    <pre><code class="language-java">
+StringBuilder sb = new StringBuilder("Hello");
+sb.append(", ");
+sb.append("World");
+String result = sb.toString(); // "Hello, World"
+    </code></pre>
+
+    <h2>7. 字符串格式化</h2>
+    <p>使用 String.format() 方法可以创建格式化的字符串：</p>
+    <pre><code class="language-java">
+String name = "Alice";
+int age = 30;
+String formatted = String.format("My name is %s and I am %d years old.", name, age);
+    </code></pre>
+
+    <h2>8. 正则表达式</h2>
+    <p>String 类提供了对正则表达式的支持：</p>
+    <pre><code class="language-java">
+String text = "The quick brown fox jumps over the lazy dog.";
+boolean containsFox = text.matches(".*fox.*"); // true
+String[] words = text.split("\\s+"); // 按空白字符分割
+    </code></pre>
+
+    <h2>9. 注意事项</h2>
+    <ul>
+        <li>字符串比较应使用 equals() 方法，而不是 == 运算符。</li>
+        <li>频繁的字符串连接操作应使用 StringBuilder 或 StringBuffer。</li>
+        <li>字符串是不可变的，所有修改操作都会创建新的字符串对象。</li>
+        <li>在循环中进行字符串连接时，应特别注意性能问题。</li>
+    </ul>
+</body>
+</html>

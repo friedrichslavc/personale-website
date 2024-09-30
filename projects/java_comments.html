@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 注释</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <h1>Java 注释</h1>
+    
+    <p>注释是程序中的解释性文本，不会被编译器执行。Java支持三种类型的注释。</p>
+
+    <h2>1. 单行注释</h2>
+    <p>单行注释以两个正斜杠 // 开始，直到行末结束。</p>
+    <pre><code class="language-java">
+// 这是一个单行注释
+int x = 5; // 这也是一个单行注释
+    </code></pre>
+
+    <h2>2. 多行注释</h2>
+    <p>多行注释以 /* 开始，以 */ 结束。可以跨越多行。</p>
+    <pre><code class="language-java">
+/* 这是一个多行注释
+   它可以跨越多行
+   非常适合长段落的解释 */
+int y = 10;
+    </code></pre>
+
+    <h2>3. 文档注释</h2>
+    <p>文档注释以 /** 开始，以 */ 结束。它们用于生成 Java 文档（Javadoc）。</p>
+    <pre><code class="language-java">
+/**
+ * 这是一个文档注释
+ * @author 您的名字
+ * @version 1.0
+ * @since 2023-01-01
+ */
+public class MyClass {
+    // 类的内容
+}
+    </code></pre>
+
+    <h2>注释的用途</h2>
+    <ul>
+        <li><strong>解释代码：</strong> 帮助其他开发者（包括未来的自己）理解代码的功能和目的。</li>
+        <li><strong>调试：</strong> 临时禁用某些代码段进行测试。</li>
+        <li><strong>生成文档：</strong> 文档注释用于自动生成API文档。</li>
+    </ul>
+
+    <h2>注释的最佳实践</h2>
+    <ol>
+        <li><strong>保持简洁明了：</strong> 注释应该简洁清晰，避免冗余。</li>
+        <li><strong>及时更新：</strong> 当代码改变时，确保相关注释也得到更新。</li>
+        <li><strong>避免过度注释：</strong> 不要为了注释而注释，好的代码本身就应该是自解释的。</li>
+        <li><strong>使用有意义的注释：</strong> 注释应该提供代码本身无法直接表达的信息。</li>
+        <li><strong>使用TODO和FIXME：</strong> 使用 // TODO 标记待完成的任务，// FIXME 标记需要修复的问题。</li>
+    </ol>
+
+    <h2>示例：综合使用注释</h2>
+    <pre><code class="language-java">
+/**
+ * 这个类演示了Java中不同类型的注释
+ * @author 您的名字
+ */
+public class CommentDemo {
+    
+    // 这是一个常量
+    private static final int MAX_SIZE = 100;
+
+    /**
+     * 计算两个数的和
+     * @param a 第一个数
+     * @param b 第二个数
+     * @return 两个数的和
+     */
+    public int add(int a, int b) {
+        return a + b; // 返回和
+    }
+
+    /*
+     * 这是一个多行注释
+     * 用于解释一个复杂的算法或逻辑
+     */
+    public void complexMethod() {
+        // TODO: 实现复杂的逻辑
+    }
+
+    // FIXME: 这个方法需要优化性能
+    public void needsOptimization() {
+        // 方法实现
+    }
+}
+    </code></pre>
+
+    <h2>注意事项</h2>
+    <ul>
+        <li>注释不应该重复代码已经明显表达的内容。</li>
+        <li>对于公共API，文档注释尤其重要，它们将被用来生成API文档。</li>
+        <li>在团队开发中，遵循一致的注释风格和规范很重要。</li>
+        <li>定期审查和清理注释，删除过时或不再相关的注释。</li>
+    </ul>
+</body>
+</html>

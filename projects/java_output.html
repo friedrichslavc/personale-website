@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 输出</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <h1>Java 输出</h1>
+    
+    <p>在Java中，有多种方法可以输出数据。最常用的是通过 <code>System.out</code> 对象来实现。</p>
+
+    <h2>1. println() 方法</h2>
+    <p><code>println()</code> 方法用于输出内容并在末尾添加换行符。</p>
+    <pre><code class="language-java">
+System.out.println("Hello, World!");
+System.out.println("This is a new line.");
+    </code></pre>
+    <p>输出结果：</p>
+    <pre>
+Hello, World!
+This is a new line.
+    </pre>
+
+    <h2>2. print() 方法</h2>
+    <p><code>print()</code> 方法用于输出内容，但不会在末尾添加换行符。</p>
+    <pre><code class="language-java">
+System.out.print("Hello, ");
+System.out.print("World!");
+    </code></pre>
+    <p>输出结果：</p>
+    <pre>
+Hello, World!
+    </pre>
+
+    <h2>3. printf() 方法</h2>
+    <p><code>printf()</code> 方法允许格式化输出，类似于C语言的 printf 函数。</p>
+    <pre><code class="language-java">
+String name = "Alice";
+int age = 25;
+System.out.printf("Name: %s, Age: %d%n", name, age);
+    </code></pre>
+    <p>输出结果：</p>
+    <pre>
+Name: Alice, Age: 25
+    </pre>
+
+    <h3>常用的格式说明符：</h3>
+    <ul>
+        <li><code>%s</code> - 字符串</li>
+        <li><code>%d</code> - 整数</li>
+        <li><code>%f</code> - 浮点数</li>
+        <li><code>%c</code> - 字符</li>
+        <li><code>%b</code> - 布尔值</li>
+        <li><code>%n</code> - 换行符（与平台无关）</li>
+    </ul>
+
+    <h2>4. 输出变量</h2>
+    <p>可以直接输出变量的值：</p>
+    <pre><code class="language-java">
+int number = 42;
+System.out.println(number);  // 输出: 42
+
+String message = "Hello, Java!";
+System.out.println(message);  // 输出: Hello, Java!
+    </code></pre>
+
+    <h2>5. 连接字符串和变量</h2>
+    <p>使用 + 运算符可以连接字符串和变量：</p>
+    <pre><code class="language-java">
+String name = "John";
+int age = 30;
+System.out.println("My name is " + name + " and I am " + age + " years old.");
+    </code></pre>
+    <p>输出结果：</p>
+    <pre>
+My name is John and I am 30 years old.
+    </pre>
+
+    <h2>6. 输出特殊字符</h2>
+    <p>使用转义序列可以输出特殊字符：</p>
+    <pre><code class="language-java">
+System.out.println("This is a tab:\t and this is a new line:\n");
+System.out.println("This is a \"quoted\" text");
+    </code></pre>
+    <p>输出结果：</p>
+    <pre>
+This is a tab:	 and this is a new line:
+
+This is a "quoted" text
+    </pre>
+
+    <h2>7. 输出到错误流</h2>
+    <p>使用 <code>System.err</code> 可以输出到标准错误流：</p>
+    <pre><code class="language-java">
+System.err.println("This is an error message");
+    </code></pre>
+
+    <h2>8. 使用 StringBuilder 构建大型输出</h2>
+    <p>对于需要构建大量输出的情况，使用 StringBuilder 可以提高效率：</p>
+    <pre><code class="language-java">
+StringBuilder sb = new StringBuilder();
+for (int i = 0; i < 5; i++) {
+    sb.append("Line ").append(i + 1).append("\n");
+}
+System.out.print(sb.toString());
+    </code></pre>
+    <p>输出结果：</p>
+    <pre>
+Line 1
+Line 2
+Line 3
+Line 4
+Line 5
+    </pre>
+
+    <h2>注意事项</h2>
+    <ul>
+        <li>使用 <code>println()</code> 和 <code>print()</code> 方法时，Java 会自动调用对象的 <code>toString()</code> 方法。</li>
+        <li>对于大量的输出操作，考虑使用缓冲输出流（如 <code>BufferedWriter</code>）以提高性能。</li>
+        <li>在处理文件或网络输出时，记得正确处理可能出现的 IOException。</li>
+    </ul>
+</body>
+</html>
