@@ -533,3 +533,8 @@ h1, h2, h3, h4, h5, h6 {
     padding: 10px;
     border-radius: 5px;
 }
+
+.java-icon {
+    width: 80px;  /* 调整这个值来改变图片宽度 */
+    height: auto;  /* 保持宽高比 */
+}
