@@ -806,25 +806,3 @@ public class ParallelArrayExample {
     }
 }
 ```
-
-## 31. 数组与 Liquid 模板
-
-在 Liquid 模板中，我们需要注意如何正确地处理数组和对象：
-
-```liquid
-{% raw %}
-{% assign numbers = "1, 2, 3, 4, 5" | split: ", " %}
-
-<ul>
-{% for number in numbers %}
-  <li>{{ number }}</li>
-{% endfor %}
-</ul>
-{% endraw %}
-```
-
-在这个例子中，我们使用 `split` 过滤器将字符串转换为数组，然后使用 `for` 循环遍历数组。为了避免 Liquid 解析错误，我们使用 `{% raw %}` 标签包裹代码块。
-```
-</file>
-
-数组
