@@ -1,0 +1,1 @@
+Java 数据类型分为两类：基本数据类型（如 int, double, boolean）和引用数据类型（如 String, Array, Class）。

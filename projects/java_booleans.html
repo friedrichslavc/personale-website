@@ -3,148 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java 布尔</title>
+    <title>Java 布尔值</title>
     <link rel="stylesheet" href="../styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
-    <h1>Java 布尔</h1>
-    
-    <p>在 Java 中，布尔（Boolean）是一种基本数据类型，用于表示真（true）或假（false）两种逻辑状态。布尔类型在条件判断和控制流程中起着关键作用。</p>
+    <div id="content"></div>
 
-    <h2>1. 布尔变量声明和初始化</h2>
-    <pre><code class="language-java">
-boolean isJavaFun = true;
-boolean isFishTasty = false;
-    </code></pre>
-
-    <h2>2. 布尔表达式</h2>
-    <p>布尔表达式是一个返回 true 或 false 的表达式。它们通常用于条件语句中。</p>
-    <pre><code class="language-java">
-int x = 10;
-int y = 9;
-System.out.println(x > y);  // 输出 true
-    </code></pre>
-
-    <h2>3. 比较运算符</h2>
-    <p>比较运算符用于创建布尔表达式：</p>
-    <ul>
-        <li>== (等于)</li>
-        <li>!= (不等于)</li>
-        <li>> (大于)</li>
-        <li>< (小于)</li>
-        <li>>= (大于等于)</li>
-        <li><= (小于等于)</li>
-    </ul>
-    <pre><code class="language-java">
-int a = 5;
-int b = 3;
-System.out.println(a == b);  // false
-System.out.println(a != b);  // true
-System.out.println(a > b);   // true
-System.out.println(a < b);   // false
-System.out.println(a >= b);  // true
-System.out.println(a <= b);  // false
-    </code></pre>
-
-    <h2>4. 逻辑运算符</h2>
-    <p>逻辑运算符用于组合多个布尔表达式：</p>
-    <ul>
-        <li>&& (与)</li>
-        <li>|| (或)</li>
-        <li>! (非)</li>
-    </ul>
-    <pre><code class="language-java">
-boolean x = true;
-boolean y = false;
-System.out.println(x && y);  // false
-System.out.println(x || y);  // true
-System.out.println(!x);      // false
-    </code></pre>
-
-    <h2>5. 短路评估</h2>
-    <p>Java 使用短路评估来处理逻辑运算符。这意味着如果第一个条件足以确定结果，Java 将不会评估第二个条件。</p>
-    <pre><code class="language-java">
-int a = 5;
-int b = 7;
-if (a < b && (a / 0 == 0)) {
-    System.out.println("This will not cause an error");
-}
-// 第二个条件不会被评估，因为第一个条件已经是 true
-    </code></pre>
-
-    <h2>6. 布尔值在条件语句中的应用</h2>
-    <pre><code class="language-java">
-boolean isRaining = true;
-if (isRaining) {
-    System.out.println("Remember to bring an umbrella!");
-} else {
-    System.out.println("Enjoy the sunshine!");
-}
-    </code></pre>
-
-    <h2>7. 布尔方法</h2>
-    <p>方法也可以返回布尔值，这在创建复杂的条件逻辑时非常有用。</p>
-    <pre><code class="language-java">
-public static boolean isEven(int number) {
-    return number % 2 == 0;
-}
-
-System.out.println(isEven(4));  // true
-System.out.println(isEven(7));  // false
-    </code></pre>
-
-    <h2>8. 布尔包装类 Boolean</h2>
-    <p>Java 提供了一个 Boolean 包装类，它将 boolean 基本类型包装在一个对象中。</p>
-    <pre><code class="language-java">
-Boolean b1 = Boolean.TRUE;
-Boolean b2 = Boolean.valueOf(true);
-boolean b3 = Boolean.parseBoolean("true");
-
-System.out.println(b1);  // true
-System.out.println(b2);  // true
-System.out.println(b3);  // true
-    </code></pre>
-
-    <h2>9. 注意事项</h2>
-    <ul>
-        <li>布尔值不能转换为其他基本数据类型。</li>
-        <li>在条件语句中，不需要显式地与 true 或 false 比较。例如，使用 if (isRaining) 而不是 if (isRaining == true)。</li>
-        <li>布尔表达式可以变得非常复杂，但应该尽量保持简单和清晰，以提高代码的可读性。</li>
-        <li>在某些情况下，使用布尔变量来存储条件结果可以提高代码的可读性和可维护性。</li>
-    </ul>
-
-    <h2>10. 实际应用示例</h2>
-    <pre><code class="language-java">
-public class BooleanExample {
-    public static void main(String[] args) {
-        int age = 20;
-        boolean hasID = true;
-        boolean canBuyAlcohol = age >= 21 && hasID;
-
-        if (canBuyAlcohol) {
-            System.out.println("You can buy alcohol.");
-        } else {
-            System.out.println("Sorry, you can't buy alcohol.");
-        }
-
-        // 使用三元运算符
-        String status = age >= 18 ? "Adult" : "Minor";
-        System.out.println("Status: " + status);
-
-        // 在循环中使用布尔值
-        boolean keepRunning = true;
-        int count = 0;
-        while (keepRunning) {
-            System.out.println("Count: " + count);
-            count++;
-            if (count >= 5) {
-                keepRunning = false;
-            }
-        }
-    }
-}
-    </code></pre>
-
-    <p>这个示例展示了布尔值在条件判断、循环控制和三元运算符中的应用。</p>
+    <script>
+        fetch('java_booleans.md')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(markdown => {
+                document.getElementById('content').innerHTML = marked(markdown);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error.message);
+                document.getElementById('content').innerHTML = '<p>Error loading content. Please try again later.</p>';
+            });
+    </script>
 </body>
 </html>
