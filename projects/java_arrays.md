@@ -574,7 +574,6 @@ public static int[][] multiplyMatrix(int[][] a, int[][] b) {
     return result;
 }
 ```
-{% endraw %}
 ## 23. 数组与泛型
 
 虽然 Java 不允许创建泛型数组，但我们可以通过一些技巧来使用泛型和数组：
