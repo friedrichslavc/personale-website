@@ -538,3 +538,20 @@ h1, h2, h3, h4, h5, h6 {
     width: 80px;  /* 调整这个值来改变图片宽度 */
     height: auto;  /* 保持宽高比 */
 }
+
+.card-img-container {
+    height: 200px; /* 保持高度不变 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 10px; /* 添加内边距 */
+}
+
+.java-icon {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    width: auto; /* 让宽度自动调整 */
+    height: auto; /* 让高度自动调整 */
+}
