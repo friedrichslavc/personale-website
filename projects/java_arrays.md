@@ -212,9 +212,11 @@ String arrayString = Arrays.toString(numbers);
 System.out.println(arrayString); // 输出 [1, 2, 3, 4, 5]
 
 // 多维数组使用 deepToString()
+{% raw %}
 int[][] matrix = {{1, 2}, {3, 4}};
 String matrixString = Arrays.deepToString(matrix);
 System.out.println(matrixString); // 输出 [[1, 2], [3, 4]]
+{% endraw %}
 ```
 
 ### 7.5 数组填充
@@ -245,8 +247,10 @@ System.out.println(Arrays.equals(array1, array2)); // 输出 true
 System.out.println(Arrays.equals(array1, array3)); // 输出 false
 
 // 比较多维数组
+{% raw %}
 int[][] matrix1 = {{1, 2}, {3, 4}};
 int[][] matrix2 = {{1, 2}, {3, 4}};
+{% endraw %}
 System.out.println(Arrays.deepEquals(matrix1, matrix2)); // 输出 true
 ```
 
@@ -570,7 +574,7 @@ public static int[][] multiplyMatrix(int[][] a, int[][] b) {
     return result;
 }
 ```
-
+{% endraw %}
 ## 23. 数组与泛型
 
 虽然 Java 不允许创建泛型数组，但我们可以通过一些技巧来使用泛型和数组：
@@ -823,3 +827,5 @@ public class ParallelArrayExample {
 在这个例子中，我们使用 `split` 过滤器将字符串转换为数组，然后使用 `for` 循环遍历数组。为了避免 Liquid 解析错误，我们使用 `{% raw %}` 标签包裹代码块。
 ```
 </file>
+
+数组
