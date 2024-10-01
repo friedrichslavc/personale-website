@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Java Break 和 Continue 语句</h1>
+    
     <p>Break 和 Continue 是 Java 中用于控制循环流程的两个重要语句。它们可以改变循环的正常执行顺序，提供更灵活的控制结构。</p>
 
     <h2>1. Break 语句</h2>
@@ -37,19 +38,6 @@ while (true) {
 // 输出: 0 1 2 3 4
     </code></pre>
 
-    <h3>1.3 在嵌套循环中使用 break</h3>
-    <p>Break 只会跳出最内层的循环。如果需要跳出外层循环，可以使用标签。</p>
-    <pre><code class="language-java">
-outerLoop: for (int i = 0; i < 3; i++) {
-    for (int j = 0; j < 3; j++) {
-        if (i == 1 && j == 1) {
-            break outerLoop;
-        }
-        System.out.println("i = " + i + ", j = " + j);
-    }
-}
-    </code></pre>
-
     <h2>2. Continue 语句</h2>
     <p>Continue 语句用于跳过循环的当前迭代，直接进入下一次迭代。</p>
 
@@ -77,75 +65,25 @@ while (i < 5) {
 // 输出: 1 2 4 5
     </code></pre>
 
-    <h3>2.3 在嵌套循环中使用 continue</h3>
-    <p>与 break 类似，continue 也可以与标签一起使用来控制外层循环。</p>
+    <h2>3. 在嵌套循环中使用 break 和 continue</h2>
+    <p>在嵌套循环中，break 和 continue 默认只影响最内层循环。如果需要影响外层循环，可以使用标签。</p>
+
     <pre><code class="language-java">
 outerLoop: for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
         if (i == 1 && j == 1) {
-            continue outerLoop;
+            break outerLoop;
         }
         System.out.println("i = " + i + ", j = " + j);
     }
 }
     </code></pre>
 
-    <h2>3. Break 和 Continue 的区别</h2>
-    <ul>
-        <li>Break 用于完全退出循环。</li>
-        <li>Continue 用于跳过当前迭代，继续下一次迭代。</li>
-        <li>Break 可以用在 switch 语句中，而 continue 不能。</li>
-    </ul>
-
-    <h2>4. 使用场景</h2>
-    <h3>4.1 Break 的常见使用场景</h3>
-    <ul>
-        <li>在找到特定元素后提前结束搜索。</li>
-        <li>在满足某个条件时退出无限循环。</li>
-        <li>在 switch 语句中防止 fall-through。</li>
-    </ul>
-
-    <h3>4.2 Continue 的常见使用场景</h3>
-    <ul>
-        <li>跳过不需要处理的元素。</li>
-        <li>在复杂的循环中，避免过多的嵌套条件语句。</li>
-    </ul>
-
-    <h2>5. 实际应用示例</h2>
-    <h3>5.1 使用 break 查找数组中的元素</h3>
-    <pre><code class="language-java">
-int[] numbers = {1, 3, 5, 7, 9, 11, 13, 15};
-int target = 9;
-boolean found = false;
-
-for (int number : numbers) {
-    if (number == target) {
-        found = true;
-        break;
-    }
-}
-
-System.out.println(found ? "找到目标数字" : "未找到目标数字");
-    </code></pre>
-
-    <h3>5.2 使用 continue 处理偶数</h3>
-    <pre><code class="language-java">
-for (int i = 1; i <= 10; i++) {
-    if (i % 2 == 0) {
-        continue;
-    }
-    System.out.println("处理奇数: " + i);
-}
-    </code></pre>
-
-    <h2>6. 注意事项</h2>
+    <h2>4. 注意事项</h2>
     <ul>
         <li>过度使用 break 和 continue 可能会使代码难以理解和维护。</li>
         <li>在使用 break 和 continue 时，要确保不会意外跳过重要的代码逻辑。</li>
         <li>在嵌套循环中使用标签时要格外小心，确保跳转到正确的循环层级。</li>
-        <li>考虑使用方法提取或重构代码，以减少对 break 和 continue 的依赖。</li>
     </ul>
-
-    <p>合理使用 break 和 continue 可以使代码更加简洁和高效，但应当谨慎使用，确保代码的可读性和可维护性。</p>
 </body>
 </html>
