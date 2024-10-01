@@ -817,3 +817,5 @@ public class ParallelArrayExample {
 ```
 
 在这个例子中，我们使用 `split` 过滤器将字符串转换为数组，然后使用 `for` 循环遍历数组。为了避免 Liquid 解析错误，我们使用 `{% raw %}` 标签包裹代码块。
+```
+</file>
