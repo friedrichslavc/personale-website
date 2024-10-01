@@ -108,8 +108,9 @@ int[] numbers = {1, 2, 3, 4, 5};
 for (int number : numbers) {
     System.out.println(number);
 }
-
+{% raw %}
 // 遍历二维数组
+
 int[][] matrix = {{1, 2}, {3, 4}, {5, 6}};
 for (int[] row : matrix) {
     for (int element : row) {
@@ -117,18 +118,19 @@ for (int[] row : matrix) {
     }
     System.out.println();
 }
+{% endraw %}
 ```
 
 ## 6. 多维数组
 
 Java 支持多维数组，最常见的是二维数组：
-
+{% raw %}
 ```java
 int[][] matrix = {
     {1, 2, 3},
     {4, 5, 6},
     {7, 8, 9}
-};
+};{% endraw %}
 System.out.println(matrix[1][2]); // 输出 6
 
 // 创建不规则数组（每行长度可以不同）
