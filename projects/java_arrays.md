@@ -58,12 +58,13 @@ int[] numbers = {10, 20, 30, 40, 50};
 System.out.println(numbers[0]); // 输出 10
 numbers[1] = 25; // 修改第二个元素
 System.out.println(numbers[1]); // 输出 25
-
+{% raw %}
 // 访问二维数组元素
 int[][] matrix = {{1, 2}, {3, 4}};
 System.out.println(matrix[0][1]); // 输出 2
 matrix[1][0] = 5; // 修改第二行第一列的元素
 ```
+{% endraw %}
 
 ## 4. 数组长度
 
@@ -72,13 +73,13 @@ matrix[1][0] = 5; // 修改第二行第一列的元素
 ```java
 int[] numbers = {1, 2, 3, 4, 5};
 System.out.println(numbers.length); // 输出 5
-
+{% raw %}
 // 二维数组的长度
 int[][] matrix = {{1, 2}, {3, 4}, {5, 6}};
 System.out.println(matrix.length); // 输出 3（行数）
 System.out.println(matrix[0].length); // 输出 2（第一行的列数）
 ```
-
+{% endraw %}
 ## 5. 遍历数组
 
 ### 5.1 使用 for 循环
@@ -88,7 +89,7 @@ int[] numbers = {1, 2, 3, 4, 5};
 for (int i = 0; i < numbers.length; i++) {
     System.out.println(numbers[i]);
 }
-
+{% raw %}
 // 遍历二维数组
 int[][] matrix = {{1, 2}, {3, 4}, {5, 6}};
 for (int i = 0; i < matrix.length; i++) {
@@ -98,7 +99,7 @@ for (int i = 0; i < matrix.length; i++) {
     System.out.println();
 }
 ```
-
+{% endraw %}
 ### 5.2 使用增强 for 循环（for-each）
 
 ```java
