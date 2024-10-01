@@ -58,13 +58,14 @@ int[] numbers = {10, 20, 30, 40, 50};
 System.out.println(numbers[0]); // 输出 10
 numbers[1] = 25; // 修改第二个元素
 System.out.println(numbers[1]); // 输出 25
-{% raw %}
+
 // 访问二维数组元素
-int[][] matrix = {{1, 2}, {3, 4}};
+{% raw %}
+int[][] matrix = {{1, 2}, {3, 4}};{% endraw %}
 System.out.println(matrix[0][1]); // 输出 2
 matrix[1][0] = 5; // 修改第二行第一列的元素
 ```
-{% endraw %}
+
 
 ## 4. 数组长度
 
